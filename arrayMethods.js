@@ -59,8 +59,18 @@ const fullName = inventors.map((inventor) => {
 //   { first: 'Katherine', last: 'Blodgett', year: 1898, passed: 1979 }
 // ]
 
-
-
+const oldVsYoung = inventors.sort((a,b) => {
+  if (a.year > b.year) {
+    return 1;
+  }
+if (a.year < b.year) {
+  return -1;
+}
+else {
+  return 0;
+}
+})
+console.log(oldVsYoung);
 // 5. Sorteer de uitvinders op hoeveel jaren ze geleefd hebben, van langste leven naar kortste leven
 // Verwachte uitkomst:
 // [
@@ -78,8 +88,13 @@ const fullName = inventors.map((inventor) => {
 // { first: 'Ada', last: 'Lovelace', year: 1815, passed: 1852 }
 // ]
 
+inventors.sort((a, b) => (b.passed - b.year) - (a.passed - a.year));
 
-
-
+console.log(inventors);
 // 6. Vind de gegevens over de uitvinder wiens achternaam 'Edison' is.
 // Verwachte uitkomst: { first: 'Thomas', last: 'Edison', year: 1847, passed: 1931 }
+
+const findInventor = inventors.find((inventor) => {
+  return inventor.last === 'Edison';
+})
+console.log(findInventor);
